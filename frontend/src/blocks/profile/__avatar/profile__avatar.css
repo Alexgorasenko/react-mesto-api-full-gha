@@ -1,0 +1,23 @@
+.profile__avatar {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  cursor: pointer;
+  position: relative;
+}
+
+
+.profile__avatar:hover {
+  background-color: rgba(1, 1, 1, 0.8);
+  opacity: .8;
+  background-image: url(../../../images/eddit-button.svg);
+  background-blend-mode:multiply;
+}
+
+
+@media screen and (max-width: 800px) {
+  .profile__avatar {
+    align-self: center;
+  }
+}

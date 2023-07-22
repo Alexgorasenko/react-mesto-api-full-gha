@@ -1,0 +1,23 @@
+.profile__avatar-edit {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  cursor: pointer;
+  right: 0px;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url(../../../images/eddit-button.svg);
+  background-size: 26px 26px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s linear 0.1s;
+}
+
+
+.profile__avatar-edit:hover {
+  opacity: 1;
+}

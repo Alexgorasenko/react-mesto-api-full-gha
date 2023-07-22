@@ -1,0 +1,19 @@
+.place-card__delete {
+  background-image: url(../../../images/place-card__delete.svg);
+  width: 18px;
+  height: 19px;
+  border: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
+  align-self: center;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transition: opacity 0.5s linear 0.1s;
+}
+
+.place-card__delete:hover {
+  opacity: 0.5;
+}

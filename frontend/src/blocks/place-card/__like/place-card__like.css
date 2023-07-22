@@ -1,0 +1,16 @@
+.place-card__like {
+  background-image: url(../../../images/like.svg);
+  width: 22px;
+  height: 19px;
+  border: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
+  align-self: center;
+  transition: opacity 0.5s linear 0.1s;
+}
+
+.place-card__like:hover {
+  opacity: 0.5;
+}

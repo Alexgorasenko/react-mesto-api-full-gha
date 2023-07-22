@@ -1,0 +1,5 @@
+.place-card__picture{
+  position: relative;
+  min-height: 282px;
+  max-height: 282px;
+}

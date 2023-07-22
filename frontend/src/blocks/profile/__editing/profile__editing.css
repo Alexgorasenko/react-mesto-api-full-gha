@@ -1,0 +1,13 @@
+.profile__editing {
+  display: flex;
+}
+
+@media screen and (max-width: 400px) {
+  .profile__editing {
+    margin-top: 26px;
+    align-items: center;
+    margin-left: 13px;
+    max-width: 100%;
+    justify-content: center;
+  }
+}
