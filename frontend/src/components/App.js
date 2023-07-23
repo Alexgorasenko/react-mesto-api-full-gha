@@ -171,12 +171,12 @@ function App() {
   };
 
   const tockenCheck = () => {
-    const tocken = localStorage.getItem("jwt");
-    console.log('tocken',tocken);
+    const token = localStorage.getItem("jwt");
+    console.log('token',token);
 
-    if (tocken) {
+    if (token) {
       apiAuth
-        .getContent(tocken)
+        .getContent(token)
         .then((data) => {
           setUserData(data.data.email);
           handleLogin();
