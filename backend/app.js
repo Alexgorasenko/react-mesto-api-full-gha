@@ -20,6 +20,7 @@ const allowedCors = [
   'https://api.alex-gorasenko.mesto.nomoredomains.xyz',
   'http://alex-gorasenko.mesto.nomoredomains.xyz',
   'localhost:3000',
+  'https://api.alex-gorasenko.mesto.nomoredomains.xyz/users/me',
 ];
 
 app.use((req, res, next) => {
