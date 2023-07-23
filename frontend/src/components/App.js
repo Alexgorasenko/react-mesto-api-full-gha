@@ -94,6 +94,7 @@ function App() {
   };
 
   const handleUpdateAvatar = (data) => {
+    console.log(data);
     api
       .patchAvatar(data)
       .then((data) => {
@@ -171,7 +172,7 @@ function App() {
 
   const tockenCheck = () => {
     const tocken = localStorage.getItem("jwt");
-    console.log(tocken);
+    console.log('tocken',tocken);
 
     if (tocken) {
       apiAuth
