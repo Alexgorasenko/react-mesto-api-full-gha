@@ -16,6 +16,22 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
+const allowedCors = [
+  'https://api.alex-gorasenko.mesto.nomoredomains.xyz',
+  'http://alex-gorasenko.mesto.nomoredomains.xyz',
+  'localhost:3000',
+];
+
+app.use((req, res, next) => {
+  const { origin } = req.headers;
+
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+
+  next();
+});
+
 app.use(express.json());
 
 app.use(cookieParser());
