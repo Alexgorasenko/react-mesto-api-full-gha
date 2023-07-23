@@ -6,6 +6,8 @@ const allowedCors = [
   'http://alex-gorasenko.mesto.nomoredomains.xyz',
   'http://localhost:3000',
   'https://alex-gorasenko.mesto.nomoredomains.xyz/sign-up',
+  'https://api.alex-gorasenko.mesto.nomoredomains.xyz/sign-up',
+
 ];
 
 const cors = (req, res, next) => {
