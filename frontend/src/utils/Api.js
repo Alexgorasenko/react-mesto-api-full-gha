@@ -80,9 +80,8 @@ export class Api {
 }
 
 const api = new Api({
-  url: "https://mesto.nomoreparties.co/v1/cohort-64",
+  url: "https://api.alex-gorasenko.mesto.nomoredomains.xyz",
   headers: {
-    authorization: "6d7b7fcc-02c2-486a-98c6-85a70a7d5eaf",
     "Content-Type": "application/json",
   },
 });
