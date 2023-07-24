@@ -49,6 +49,7 @@ const createUser = (req, res, next) => {
 };
 
 const getUsers = (req, res, next) => {
+  console.log(req.headers);
   User.find({})
     .then((users) => {
       res.send(users);
