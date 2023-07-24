@@ -198,6 +198,7 @@ function App() {
     apiAuth
       .authorize(password, email)
       .then((data) => {
+        console.log(data);
         localStorage.setItem("jwt", data.token);
         navigate("/");
         handleLogin();
