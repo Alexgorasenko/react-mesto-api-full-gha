@@ -116,15 +116,7 @@ const login = (req, res, next) => {
           .then((isValidUser) => {
             if (isValidUser) {
               const token = jwt.sign({ _id: user._id }, JWT_SECRET);
-              // res.send('jwt', token, {
-              //   maxAge: 3600 * 24 * 7,
-              //   httpOnly: true,
-              // });
-              // const {
-              //   _id, name, about, avatar,
-              // } = user;
               res.send({
-                // _id, name, about, avatar, email,
                 token,
               });
             } else {

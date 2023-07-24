@@ -2,9 +2,10 @@ const jwt = require('jsonwebtoken');
 const UnauthorizedError = require('../utils/UnauthorizedError');
 
 const auth = (req, res, next) => {
-  const token = req.cookies.jwt;
+  const { authorization } = req.headers;
+  const token = authorization.replace('Bearer ', '');
   let payload;
-  if (!token) {
+  if (!authorization || !authorization.startsWith('Bearer ')) {
     next(new UnauthorizedError('Неверный логин или пароль'));
   }
   try {

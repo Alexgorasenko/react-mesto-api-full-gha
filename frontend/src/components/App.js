@@ -171,13 +171,16 @@ function App() {
   };
 
   const tockenCheck = () => {
-    const tocken = localStorage.getItem("jwt");
-    console.log(tocken);
+    const token = localStorage.getItem("jwt");
 
-    if (tocken) {
+
+    if (token) {
+      console.log(apiAuth
+        .getContent);
       apiAuth
-        .getContent(tocken)
+        .getContent(token)
         .then((data) => {
+          console.log('2');
           setUserData(data.data.email);
           handleLogin();
           navigate("/");
