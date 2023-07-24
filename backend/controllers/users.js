@@ -108,7 +108,7 @@ const login = (req, res, next) => {
     .select('+password')
     .then((user) => {
       if (!user) {
-        throw new UnauthorizedError('Неверный логин или пароль6');
+        throw new UnauthorizedError('Неверный логин или пароль 3');
       } else {
         return bcrypt
           .compare(password, user.password)
@@ -119,7 +119,7 @@ const login = (req, res, next) => {
                 token,
               });
             } else {
-              throw new UnauthorizedError('Неверный логин или пароль');
+              throw new UnauthorizedError('Неверный логин или пароль 4');
             }
           })
           .catch(next);
