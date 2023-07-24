@@ -49,7 +49,6 @@ const createUser = (req, res, next) => {
 };
 
 const getUsers = (req, res, next) => {
-  console.log(req.headers);
   User.find({})
     .then((users) => {
       res.send(users);
@@ -59,7 +58,6 @@ const getUsers = (req, res, next) => {
 
 const getUser = (req, res, next) => {
   const userId = req.params.id ? req.params.id : req.user._id;
-
   User.findById(userId)
     .orFail(new NotFoundError('Пользователь по указанному id не найден'))
     .then((user) => {
@@ -110,7 +108,7 @@ const login = (req, res, next) => {
     .select('+password')
     .then((user) => {
       if (!user) {
-        throw new UnauthorizedError('Неверный логин или пароль');
+        throw new UnauthorizedError('Неверный логин или пароль6');
       } else {
         return bcrypt
           .compare(password, user.password)
