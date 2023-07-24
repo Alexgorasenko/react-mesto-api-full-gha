@@ -27,7 +27,7 @@ function App() {
   const [cards, setСards] = useState([]);
   const [tooltipMessage, setTooltipMessage] = useState(null);
   const navigate = useNavigate();
-
+  const tocken = localStorage.getItem("jwt");
   useEffect(() => {
     api
       .getUserInfo()
@@ -46,7 +46,7 @@ function App() {
       .catch((err) => {
         console.log(`Ошибка сервера ${err}`);
       });
-  }, []);
+  }, [tocken]);
 
   const handleCardLike = (card) => {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
@@ -94,7 +94,6 @@ function App() {
   };
 
   const handleUpdateAvatar = (data) => {
-    console.log(data);
     api
       .patchAvatar(data)
       .then((data) => {
@@ -171,16 +170,14 @@ function App() {
   };
 
   const tockenCheck = () => {
-    const token = localStorage.getItem("jwt");
+    
+    console.log(apiAuth
+      .getContent);
 
-
-    if (token) {
-      console.log(apiAuth
-        .getContent);
+    if (tocken) {
       apiAuth
-        .getContent(token)
+        .getContent(tocken)
         .then((data) => {
-          console.log('2');
           setUserData(data.data.email);
           handleLogin();
           navigate("/");
@@ -195,13 +192,12 @@ function App() {
 
   useEffect(() => {
     tockenCheck();
-  }, []);
+  }, [tocken]);
 
   const handleAuthorize = ({ password, email }) => {
     apiAuth
       .authorize(password, email)
       .then((data) => {
-        console.log(data);
         localStorage.setItem("jwt", data.token);
         navigate("/");
         handleLogin();

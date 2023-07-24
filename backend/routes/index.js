@@ -15,7 +15,7 @@ const cardsRouter = require('./cards');
 router.use('/signin', celebrate.validateCreateAndLoginUser, login);
 router.use('/signup', celebrate.validateCreateAndLoginUser, createUser);
 
-router.use(auth);
+// router.use(auth);
 
 router.use('/users', usersRouter);
 
