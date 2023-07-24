@@ -7,12 +7,12 @@ const auth = (req, res, next) => {
 
   let payload;
   if (!token) {
-    next(new UnauthorizedError('Неверный логин или пароль'));
+    next(new UnauthorizedError('Неверный логин или пароль 1'));
   }
   try {
     payload = jwt.verify(token, 'super_strong_password');
   } catch (err) {
-    next(new UnauthorizedError('Неверный логин или пароль'));
+    next(new UnauthorizedError('Неверный логин или пароль 2'));
   }
 
   req.user = payload;
