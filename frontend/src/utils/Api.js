@@ -81,12 +81,12 @@ export class Api {
   }
 }
 const token = localStorage.getItem("jwt");
-console.log(`Bearer ${token}`);
+
 const api = new Api({
   url: "https://api.alex-gorasenko.mesto.nomoredomains.xyz",
   headers: {
     "Content-Type": "application/json",
-    'Authorization': `Bearer ${token}`
+    'Authorization': `Bearer${token}`
   }
 });
 export default api;

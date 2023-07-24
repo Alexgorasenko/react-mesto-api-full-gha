@@ -27,7 +27,7 @@ function App() {
   const [cards, setСards] = useState([]);
   const [tooltipMessage, setTooltipMessage] = useState(null);
   const navigate = useNavigate();
-  const tocken = localStorage.getItem("jwt");
+  const token = localStorage.getItem("jwt");
   useEffect(() => {
     api
       .getUserInfo()
@@ -46,7 +46,7 @@ function App() {
       .catch((err) => {
         console.log(`Ошибка сервера ${err}`);
       });
-  }, [tocken]);
+  }, [token]);
 
   const handleCardLike = (card) => {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
@@ -171,12 +171,11 @@ function App() {
 
   const tockenCheck = () => {
     
-    console.log(apiAuth
-      .getContent);
+    console.log(token);
 
-    if (tocken) {
+    if (token) {
       apiAuth
-        .getContent(tocken)
+        .getContent(token)
         .then((data) => {
           setUserData(data.data.email);
           handleLogin();
@@ -192,7 +191,7 @@ function App() {
 
   useEffect(() => {
     tockenCheck();
-  }, [tocken]);
+  }, [token]);
 
   const handleAuthorize = ({ password, email }) => {
     apiAuth
