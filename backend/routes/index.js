@@ -12,12 +12,6 @@ const {
 const usersRouter = require('./users');
 const cardsRouter = require('./cards');
 
-router.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
-});
-
 router.use('/signin', celebrate.validateCreateAndLoginUser, login);
 router.use('/signup', celebrate.validateCreateAndLoginUser, createUser);
 
