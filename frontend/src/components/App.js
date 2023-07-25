@@ -29,6 +29,7 @@ function App() {
   const navigate = useNavigate();
   const token = localStorage.getItem("jwt");
   useEffect(() => {
+    tockenCheck();
     api
       .getUserInfo()
       .then((data) => {
@@ -46,11 +47,13 @@ function App() {
       .catch((err) => {
         console.log(`Ошибка сервера ${err}`);
       });
-  }, [token]);
+      
+  }, []);
 
   const handleCardLike = (card) => {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
-
+    console.log(card);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
+    console.log(currentUser._id);
     if (!isLiked) {
       api
         .putLike(card._id)
@@ -73,6 +76,7 @@ function App() {
   };
 
   const handleCardDelete = (card) => {
+    
     api
       .deleteCard(card._id)
       .then(() => {
@@ -170,14 +174,11 @@ function App() {
   };
 
   const tockenCheck = () => {
-    
-    console.log(token);
-
     if (token) {
       apiAuth
         .getContent(token)
         .then((data) => {
-          setUserData(data.data.email);
+          setUserData(data.email);
           handleLogin();
           navigate("/");
         })
@@ -189,10 +190,10 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    tockenCheck();
-    
-  }, [token]);
+  // useEffect(() => {
+  //   tockenCheck();
+  // }, [token]);
+
 
   const handleAuthorize = ({ password, email }) => {
     apiAuth

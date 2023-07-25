@@ -30,13 +30,12 @@ export const authorize = (password, email) => {
 };
 
 export const getContent = (token) => {
-  console.log(`Bearer ${token}`);
-  
+
   return fetch(`${BASE_URL}/users/me`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      'Authorization': `Bearer ${token}`,
+      'Authorization': `Bearer ${token}`
     },
   }).then(checkResponse)
 };

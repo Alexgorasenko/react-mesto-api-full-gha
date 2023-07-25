@@ -8,12 +8,16 @@ const { errors } = require('celebrate');
 
 const router = require('./routes/index');
 
+const config = require('./config');
+
+require('dotenv').config();
+
 const error = require('./middlewares/error');
 const cors = require('./middlewares/cors');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
+mongoose.connect(config.MONGODB_URL);
 
 app.use(express.json());
 
@@ -27,6 +31,6 @@ app.use(errorLogger);
 
 app.use(errors());
 app.use(error);
-app.listen(3000, () => {
+app.listen(config.PORT, () => {
   console.log('Сервер запущен!');
 });

@@ -1,10 +1,9 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+const config = require('../config');
 
 const SALT_ROUNDS = 10;
-
-const JWT_SECRET = 'super_strong_password';
 
 const BadRequestError = require('../utils/BadRequestError');
 
@@ -98,7 +97,6 @@ const updateUser = (req, res, next) => {
 };
 
 const updateUsersAvatar = (req, res, next) => {
-  console.log(req.headers);
   const { avatar } = req.body;
   updateUserData(User, { avatar }, req, res, next);
 };
@@ -109,18 +107,18 @@ const login = (req, res, next) => {
     .select('+password')
     .then((user) => {
       if (!user) {
-        throw new UnauthorizedError('Неверный логин или пароль 3');
+        throw new UnauthorizedError('Неверный логин или пароль');
       } else {
         return bcrypt
           .compare(password, user.password)
           .then((isValidUser) => {
             if (isValidUser) {
-              const token = jwt.sign({ _id: user._id }, JWT_SECRET);
+              const token = jwt.sign({ _id: user._id }, config.JWT_SECRET);
               res.send({
                 token,
               });
             } else {
-              throw new UnauthorizedError('Неверный логин или пароль 4');
+              throw new UnauthorizedError('Неверный логин или пароль');
             }
           })
           .catch(next);
