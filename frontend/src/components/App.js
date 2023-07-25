@@ -191,6 +191,7 @@ function App() {
 
   useEffect(() => {
     tockenCheck();
+    
   }, [token]);
 
   const handleAuthorize = ({ password, email }) => {
