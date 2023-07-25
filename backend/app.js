@@ -10,8 +10,6 @@ const router = require('./routes/index');
 
 const config = require('./config');
 
-require('dotenv').config();
-
 const error = require('./middlewares/error');
 const cors = require('./middlewares/cors');
 
