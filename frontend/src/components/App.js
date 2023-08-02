@@ -29,7 +29,7 @@ function App() {
   const navigate = useNavigate();
   const token = localStorage.getItem("jwt");
   useEffect(() => {
-    tockenCheck();
+  if(token){
     api
       .getUserInfo()
       .then((data) => {
@@ -47,8 +47,8 @@ function App() {
       .catch((err) => {
         console.log(`Ошибка сервера ${err}`);
       });
-      
-  }, []);
+    }
+  }, [token]);
 
   const handleCardLike = (card) => {
     console.log(card);
@@ -190,9 +190,9 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //   tockenCheck();
-  // }, [token]);
+  useEffect(() => {
+    tockenCheck();
+  }, [token]);
 
 
   const handleAuthorize = ({ password, email }) => {
