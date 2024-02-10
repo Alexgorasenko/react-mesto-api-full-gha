@@ -7,10 +7,3 @@
 
 Адрес репозитория: https://github.com/Alexgorasenko/react-mesto-api-full-gha
 
-## Ссылки на проект
-
-IP-адрес 51.250.79.227
-
-Frontend https://alex-gorasenko.mesto.nomoredomains.xyz
-
-Backend https://api.alex-gorasenko.mesto.nomoredomains.xyz
